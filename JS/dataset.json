@@ -1,0 +1,29 @@
+{
+    "0" : {
+            "describir" : "bandera argentina",
+            "imagen" : {
+                            "0" : ["#75aadb", "#ffffff", "#75aadb"]
+                       },
+            "audio" :  {
+                            "0" : [246, 293, 349, 349, 329, 261]
+                       }
+          },
+    "1" : {
+            "describir" : "",
+            "imagen" : {
+                            "0" : []
+                       },
+            "audio" :  {
+                            "0" : []
+                       }
+          },
+    "2" : {
+            "describir" : "",
+            "imagen" : {
+                            "0" : []
+                       },
+            "audio" :  {
+                            "0" : []
+                       }
+          }
+}
