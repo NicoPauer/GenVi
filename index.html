@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+    <html lang = "es-AR">
+        <head>
+            <meta charset = "utf-8" />
+            <meta name = "viewport" content = "width=device-width,height=device-height,initial-scale=1,shrink-to-fit=no" />
+            <title>GenVi : Genera Videos IA</title>
+            <meta name = "author" content = "Nico Pauer" />
+            <meta name = "keywords" content = "video, ai, ia,  AI, IA, Video, generar, Generar, generador, Generdor, nico, Nico, Pauer, pauer" />
+            <link rel = "stylesheet" href = "style.css" />
+            <script type = "text/javascript" src = "JS/main.js"></script>
+            <script type = "text/javascript" src = "JS/algoritmos.js"></script>
+        </head>
+        <body>
+            <header>
+                <form action = "" method = "post">
+                    <input id = "instrucciones" type = "text" placeholder = "   Tipo de video a crear..." autocomplete = "off"/><br />
+                    <input id = "generarlo" value = "Generar Vídeo" type = "button" onclick = "javasccript:generarVideo(document.getElementById(document.getElementById('instrucciones').value));" />
+                </form>
+            </header><br />
+            <article id = "contenido-ia">
+                <section id = "vista-previa" class = "generado">
+                    <video id = "contenedor-multimedia" controls></video><br />
+                    <a id = "descarga-video" onclick = "javascript:descargar();">
+                        <button>Descargar Vídeo</button>
+                    </a>
+                </section>
+            </article><br />
+            <footer> © 2024 Nico Pauer <a href = "mailto:nicolaspauer20@gmail.com?Subject=Generador_Video_IA">&lt;nicolaspauer20@gmail.com&gt;</a></footer>
+        </body>
+    </html>
