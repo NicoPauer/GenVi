@@ -28,7 +28,7 @@ function obtenerTexto(urlJSON)
                            /* Rescato contenido en variable mas global que
                               la función porque sino no puedo salvar al JSON
                             */
-                            salvarContenido contenido;
+                            salvarContenido = contenido;
                          }
          );
     // Devuelvo el JSON con todas las abstracciones de texto
