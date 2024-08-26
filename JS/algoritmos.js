@@ -1,14 +1,37 @@
+// Creo como variable mas global que la función sino no puedo usar contenido del fetch al perder datos irrecuperables
+let colores = [];
+
+function colorRGBaHex(RGBenPNG)
+{
+     // Traduce un color RGB de un archivo PNG a su forma hexadecimal
+    RGBenPNG = "#" + RGBenPNG.replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c");
+    RGBenPNG = RGBenPNG.replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
+    return RGBenPNG;
+}
+
 function coloresPNG(urlImagen)
 {
     // Obtiene lista de colores en codigo hexadecimal de cada pixel de imagen remota
-    let colores = [];
+    
 
     fetch(urlImagen).then(respuesta => respuesta.json())
     .then(
             contenido => {
                             /* Algoritmo descompresion para algoritmo deflate de colores RGB 
                                del contenido PNG recibido. */
+                            // Control hasta que encuentre la forma de obtener solo los colores
                             console.log(contenido);
+                            // Paso 1 : ir a la seccion del PNG donde se guardan cada uno de los colores
+                            let esColor = true;
+                            for (let color in contenido)
+                            {
+                                // Paso 2 : si estoy en la seccion de colores y leo un color, lo agrego
+                                if (esColor)
+                                {
+                                    // Paso 3 : paso la codificaion a cadena de color hexadecimal desde su forma RGB cifrada
+                                    colores = colores.concat(colorRGBaHex(color));
+                                }
+                            }
                          }
          );
 
