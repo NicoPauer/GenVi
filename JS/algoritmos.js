@@ -27,7 +27,6 @@ function colorRGBaHex(RGBenPNG)
                case 13: digito = "d"; break;
                case 14: digito = "e"; break;
                case 15: digito = "f"; break;
-               default: digito = digito.toString();
           }
           
           resultado += digito;
