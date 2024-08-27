@@ -10,43 +10,20 @@ function colorRGBaHex(RGBenPNG)
      let restos = [RGBenPNG % 16];
      
      let cociente = parseInt(RGBenPNG / 16, 10);
-
-     let auxiliar = cociente;
      
-      switch(auxiliar)
-          {
-               case 10: auxiliar = "a"; break;       
-               case 11: auxiliar = "b"; break;
-               case 12: auxiliar = "c"; break;
-               case 13: auxiliar = "d"; break;
-               case 14: auxiliar = "e"; break;
-               case 15: auxiliar = "f"; break;
-          }
-     
-     resultado += auxiliar;
+     resultado += resultado.replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
      
      // Paso 2: Repetir paso anterior hasta anular el cociente
      while (cociente != 0)
      {
          cociente = parseInt(cociente / 16, 10);
-         // Esta transformacion la hago cada vez que obtengo el cociente asi guardo ya con la nueva simbologia para evitar errores
-          let auxiliar = cociente;
-     
-           switch(auxiliar)
-          {
-               case 10: auxiliar = "a"; break;       
-               case 11: auxiliar = "b"; break;
-               case 12: auxiliar = "c"; break;
-               case 13: auxiliar = "d"; break;
-               case 14: auxiliar = "e"; break;
-               case 15: auxiliar = "f"; break;
-          }
+
          restos.concat(cociente % 16);
      }
      // Paso 3: Ir en orden inverso agregando digitos ya traducidos de cada resto
      for (let digito in restos.reverse())
      {    
-          resultado += digito;
+          resultado += digito.toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
      }
     // Entrego el resultado al exterior
     return resultado;
