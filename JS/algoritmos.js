@@ -13,8 +13,8 @@ function colorRGBaHex(RGBenPNG)
      // Paso 2: Repetir paso anterior hasta anular el cociente
      while (cociente != 0)
      {
-         let cociente = parseInt(RGBenPNG / 16, 10); 
-         restos.concat(RGBenPNG % 16));
+         let cociente = parseInt(cociente / 16, 10); 
+         restos.concat(cociente % 16);
      }
      // Paso 3: Ir en orden inverso agregando significados en digitos de cada resto
      for (let digito in restos.reverse())
