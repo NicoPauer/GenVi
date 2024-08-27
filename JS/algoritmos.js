@@ -9,7 +9,7 @@ function colorRGBaHex(RGBenPNG)
      // Paso 1 : Calculo el resto y cociente del numero a transformar y a que base hacerlo
      let restos = [RGBenPNG % 16];
 
-     resultado += resto;
+     resultado += restos[0];
      
      let cociente = parseInt(RGBenPNG / 16, 10);
      
