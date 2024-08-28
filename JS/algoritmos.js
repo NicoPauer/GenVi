@@ -30,7 +30,7 @@ function colorRGBaHex(RGBenPNG)
           resultado += digito.toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
      }
     // Entrego el resultado al exterior
-    return "#" + resultado.reverse();
+    return "#" + resultado.split("").reverse().toString().replace(/,/gi, "");
 }
 
 function coloresPNG(urlImagen)
