@@ -20,12 +20,10 @@ function colorRGBaHex(RGBenPNG)
      }
      // Paso 3: Ir en orden inverso agregando digitos ya traducidos de cada resto
      
-     restos = restos.reverse();
-     
      for (let digito in restos)
      {    
           console.log("resto: " + digito);
-          resultado += digito.toString();
+          resultado += digito.toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
      }
     // Entrego el resultado al exterior
     return resultado;
