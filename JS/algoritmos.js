@@ -20,11 +20,8 @@ function colorRGBaHex(RGBenPNG)
      }
      // Paso 3: Ir en orden inverso agregando digitos ya traducidos de cada resto
      
-     restos = restos.reverse();
-     
-     for (let digito in restos)
-     {    
-          console.log("resto: " + restos[digito]);
+     for (let digito in restos.reverse())
+     {
           resultado += restos[digito].toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
      }
     // Entrego el resultado al exterior
@@ -51,7 +48,7 @@ function coloresPNG(urlImagen)
                                 if (esColor)
                                 {
                                     // Paso 3 : paso la codificaion a cadena de color hexadecimal desde su forma RGB cifrada
-                                    colores = colores.concat(colorRGBaHex(color));
+                                    colores = colores.concat(colorRGBaHex(contenido[color]));
                                 }
                             }
                          }
