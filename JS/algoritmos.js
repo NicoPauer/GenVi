@@ -5,12 +5,10 @@ function colorRGBaHex(RGBenPNG)
 {
      // Traduce un color RGB de un archivo PNG a su forma hexadecimal
      // Aplico algoritmo sugerido por IA para realizar la transformacion de numero decimal a equivalente en numeros hexadecimal
-     let resultado = "";
+     let resultado = "#";
      // Paso 1 : Calculo el resto y cociente del numero a transformar y a que base hacerlo
      let restos = [RGBenPNG % 16];
 
-     resultado += restos[0];
-     
      let cociente = parseInt(RGBenPNG / 16, 10);
      
      resultado = resultado.replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
@@ -19,10 +17,12 @@ function colorRGBaHex(RGBenPNG)
      while (cociente != 0)
      {
          cociente = parseInt(cociente / 16, 10);
-
-         restos.concat(cociente % 16);
+         // Tengo que que hacer esta asignacion para guardar los restos
+         restos = restos.concat(cociente % 16);
      }
      // Paso 3: Ir en orden inverso agregando digitos ya traducidos de cada resto
+     
+     restos = restos.reverse();
      
      for (let digito in restos)
      {    
@@ -30,7 +30,7 @@ function colorRGBaHex(RGBenPNG)
           resultado += digito.toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
      }
     // Entrego el resultado al exterior
-    return "#" + resultado.split("").reverse().toString().replace(/,/gi, "");
+    return resultado;
 }
 
 function coloresPNG(urlImagen)
