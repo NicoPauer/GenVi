@@ -25,18 +25,7 @@ function colorRGBaHex(RGBenPNG)
      {
           resultado += restos[digito].toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
      }
-     // Ajusto si no es el lago correcto, 7 caracteres (uno "#" y el resto los digitos hexadecimales)
-     if (resultado.length > 7)
-     { // Recorto si es mayor a 7, recorto los ultimos
-          resultado = resultado.slice(7);
-     }
-     else
-     {
-          if (resultado.length < 7)
-          { // Si es menor a 7 caracteres, asigno cualquier color
-               resultado = ("#" + restos[0] + "f" + "77" + "d" + restos[0]);
-          }
-     }
+     
     // Entrego el resultado al exterior
     return resultado;
 }
