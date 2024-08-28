@@ -11,8 +11,6 @@ function colorRGBaHex(RGBenPNG)
 
      let cociente = parseInt(RGBenPNG / 16, 10);
      
-     resultado = resultado.replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
-     
      // Paso 2: Repetir paso anterior hasta anular el cociente
      while (cociente != 0)
      {
