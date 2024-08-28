@@ -23,7 +23,6 @@ function colorRGBaHex(RGBenPNG)
          restos.concat(cociente % 16);
      }
      // Paso 3: Ir en orden inverso agregando digitos ya traducidos de cada resto
-     restos = restos.reverse();
      
      for (let digito in restos)
      {    
