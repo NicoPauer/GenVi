@@ -15,7 +15,7 @@ function colorRGBaHex(RGBenPNG)
           for (ultimo in simbolos)
           {
                // Si encuntro la combinacion de digitos que valide la condicion, agrego digitos y paro la ejecucion
-               if (((RGBenPNG - simbolos[ultimo]) / simbolos[primero]) == 16)
+               if (parseInt((RGBenPNG - parseInt(simbolos[ultimo], 16)) / parseInt(simbolos[primero], 16), 10) == 16)
                {
                     digitos = digitos.concat([simbolos[primero], simbolos[ultimo]]);
                     break;
