@@ -29,12 +29,10 @@ function colorRGBaHex(RGBenPNG)
                }
           }
      }
-     // Agrego los digitos ya encontrados
-     resultado += (digitos[0] + digitos[1]);
-     // En caso de que el numero sea mayor a 255 lo voy partiendo en digitos y calculando
-     if (RGBenPNG > 255)
+     // Agrego los digitos ya encontrados todos
+     for (let digito in digitos)
      {
-          resultado += (colorRGBaHex(RGBenPNG / 10).replace(/#/gi, "") + colorRGBaHex(RGBenPNG % 10).replace(/#/gi, ""));
+          resultado += digitos[digito].toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");;
      }
      // Devuelvo el codigo de color
      return resultado;
