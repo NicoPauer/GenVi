@@ -4,30 +4,28 @@ let colores = [];
 function colorRGBaHex(RGBenPNG)
 {
      // Traduce un color RGB de un archivo PNG a su forma hexadecimal
-     // Aplico algoritmo sugerido por IA para realizar la transformacion de numero decimal a equivalente en numeros hexadecimal
      let resultado = "#";
-     // Paso 1 : Calculo el resto y cociente del numero a transformar y a que base hacerlo
-     
-     let cociente = parseInt(RGBenPNG / 16, 10);
+     // Voy probando combinanaciones ayudandome con for..in anidades y lista de simbolos hexdecimales
+     let simbolos = ["a", "b", "c", "d", "e", "f"];
 
-     let restos = [cociente % 16];
+     let digitos = [];
      
-     // Paso 2: Repetir paso anterior hasta anular el cociente
-     while (cociente != 0)
+     for (primero in simbolos)
      {
-         cociente = parseInt(cociente / 16, 10);
-         // Tengo que que hacer esta asignacion para guardar los restos
-         restos = restos.concat(cociente % 16);
-     }
-     // Paso 3: Ir en orden inverso agregando digitos ya traducidos de cada resto
-     
-     for (let digito in restos.reverse())
-     {
-          resultado += restos[digito].toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
-     }
-     
-    // Entrego el resultado al exterior
-    return resultado;
+          for (ultimo in simbolos)
+          {
+               // Si encuntro la combinacion de digitos que valide la condicion, agrego digitos y paro la ejecucion
+               if (((RGBenPNG - simbolos[ultimo]) / simbolos[primero]) == 16)
+               {
+                    digitos = digitos.concat([simbolos[primero], simbolos[ultimo]]);
+                    break;
+               }
+          }
+     }     
+     // Agrego los digitos ya encontrados
+     resultado += (digitos[0] + digitos[1]);
+     // Devuelvo el codigo de color
+     return resultado;
 }
 
 function coloresPNG(urlImagen)
