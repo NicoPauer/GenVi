@@ -2,9 +2,9 @@
 let colores = [];
 
 function colorRGBaHex(RGBenPNG)
-{
+{ // Opera hasta 255, por cada uno de los canales RGB
      // Traduce un color RGB de un archivo PNG a su forma hexadecimal
-     let resultado = "#";
+     let resultado = "";
      // Voy probando combinanaciones ayudandome con for..in anidades y lista de simbolos hexdecimales
      let simbolos = ["a", "b", "c", "d", "e", "f"];
 
@@ -30,10 +30,7 @@ function colorRGBaHex(RGBenPNG)
           }
      }
      // Agrego los digitos ya encontrados todos al resultado
-     for (let digito in digitos)
-     {
-          resultado += digitos[digito];
-     }
+     resultado += (digitos[0] + digitos[1]);
      // Devuelvo el codigo de color
      return resultado;
 }
@@ -49,18 +46,22 @@ function coloresPNG(urlImagen)
                             /* Algoritmo descompresion para algoritmo deflate de colores RGB 
                                del contenido PNG recibido. */
                             // Control hasta que encuentre la forma de obtener solo los colores
-                            console.log(contenido);
+                            console.log("9 digitos PLTE" + contenido);
                             // Paso 1 : ir a la seccion del PNG donde se guardan cada uno de los colores
                             let esColor = true;
+
+                            let contenido = [255255255, 255000000];
+                 
                             for (let color in contenido)
                             {
                                 // Paso 2 : si estoy en la seccion de colores y leo un color, lo agrego
                                 if (esColor)
                                 {
                                     // Paso 3 : paso la codificaion a cadena de color hexadecimal desde su forma RGB cifrada
-                                    colores = colores.concat(colorRGBaHex(contenido[color]));
+                                    colores = colores.concat("#" + parseInt(colorRGBaHex(contenido[color] / 1e6), 10).toString() + parseInt(colorRGBaHex((contenido[color] % 1e6) / 1e3), 10).toString() + parseInt(colorRGBaHex(contenido[color] / 1e3), 10).toString());
                                 }
                             }
+                            console.log("COLORES DE LA PALETA: ", colores);
                          }
          );
 
