@@ -29,10 +29,10 @@ function colorRGBaHex(RGBenPNG)
                }
           }
      }
-     // Agrego los digitos ya encontrados todos
+     // Agrego los digitos ya encontrados todos al resultado
      for (let digito in digitos)
      {
-          resultado += digitos[digito].toString().replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");;
+          resultado += digitos[digito];
      }
      // Devuelvo el codigo de color
      return resultado;
