@@ -50,15 +50,15 @@ function coloresPNG(urlImagen)
                             // Paso 1 : ir a la seccion del PNG donde se guardan cada uno de los colores
                             let esColor = true;
 
-                            let contenido = [255255255, 255000000];
+                            let cont = [255255255, 255000000];
                  
-                            for (let color in contenido)
+                            for (let color in cont)
                             {
                                 // Paso 2 : si estoy en la seccion de colores y leo un color, lo agrego
                                 if (esColor)
                                 {
                                     // Paso 3 : paso la codificaion a cadena de color hexadecimal desde su forma RGB cifrada
-                                    colores = colores.concat("#" + parseInt(colorRGBaHex(contenido[color] / 1e6), 10).toString() + parseInt(colorRGBaHex((contenido[color] % 1e6) / 1e3), 10).toString() + parseInt(colorRGBaHex(contenido[color] / 1e3), 10).toString());
+                                    colores = colores.concat("#" + parseInt(colorRGBaHex(cont[color] / 1e6), 10).toString() + parseInt(colorRGBaHex((cont[color] % 1e6) / 1e3), 10).toString() + parseInt(colorRGBaHex(cont[color] / 1e3), 10).toString());
                                 }
                             }
                             console.log("COLORES DE LA PALETA: ", colores);
