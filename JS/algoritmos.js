@@ -20,6 +20,13 @@ function colorRGBaHex(RGBenPNG)
                     digitos = digitos.concat([simbolos[primero], simbolos[ultimo]]);
                     break;
                }
+               else
+               { // Cuando no anda por forma temporal cambio los digitos para evitar errores
+                    digitos = digitos.concat([parseInt((RGBenPNG / 16), 10).toString(), parseInt((RGBenPNG % 16), 10).toString()]);
+                    // Acomodo digitos a forma hexadecimal
+                    digitos[0] = digitos[0].replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
+                    digitos[1] = digitos[1].replace(/10/gi, "a").replace(/11/gi, "b").replace(/12/gi, "c").replace(/13/gi, "d").replace(/14/gi, "e").replace(/15/gi, "f");
+               }
           }
      }     
      // Agrego los digitos ya encontrados
